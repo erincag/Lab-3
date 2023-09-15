@@ -10,7 +10,12 @@ editor: visual
 ## 1.
 
 ```{r}
-
+download.file(
+  "https://github.com/USCbiostats/data-science-data/blob/e7662740f4958ef632fb41ef7e4d1e705b013af5/02_met/met_all.gz",
+  destfile = file.path("~", "Downloads", "met_all.gz"),
+  method   = "libcurl",
+  timeout  = 60
+)
 met <- data.table::fread(file.path("~", "Downloads", "met_all.gz"))
 ```
 
