@@ -120,6 +120,12 @@ hist(met$wind.sp)
 ```
 
 ```{r}
+leaflet(elev) |>
+  addProviderTiles('OpenStreetMap') |> 
+   addCircles(lat=~lat,lng=~lon, opacity=1, fillOpacity=1, radius=100)
+```
+
+```{r}
 library(lubridate)
 elev$date <- with(elev, ymd_h(paste(year, month, day, hour, sep= ' ')))
 summary(elev$date)
@@ -136,4 +142,14 @@ plot(elev$date, elev$temp, type='l')
 
 ```{r}
 plot(elev$date, elev$wind.sp, type='l')
+```
+
+## 8.
+
+```{r}
+# create a box plot for distribution of temp during night hours (7pm - 11:59pm)
+hours <- met[order(met$hour)]
+tail(hours)
+night <- hours[hours$hour >= 19,]
+boxplot(night$temp ~ night$hour, col = "orange")
 ```
