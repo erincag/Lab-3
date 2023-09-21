@@ -3,6 +3,7 @@ title: "Lab 3"
 author: "Erin Cagle"
 format: html
 editor: visual
+embed-resources: true
 ---
 
 ## 
